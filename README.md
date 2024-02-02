@@ -13,7 +13,7 @@
 * ロゴを長くタップ：送信メッセージ復元
 
 ## Lite版はこっち↓
-* (https://github.com/KAKURITU-P/microbit-chat-ja-lite)
+[Lite版](https://github.com/KAKURITU-P/microbit-chat-ja-lite)
  
 ## 拡張機能として使用
 
