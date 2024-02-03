@@ -11,6 +11,7 @@ input.onPinPressed(TouchPin.P0, function () {
         . . . . .
         # . . . .
         `)
+    basic.clearScreen()
     katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // メッセージリカバリー
@@ -93,6 +94,7 @@ input.onPinPressed(TouchPin.P2, function () {
         . . . . .
         . . . . #
         `)
+    basic.clearScreen()
     katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // 取り消し(試験的)
@@ -169,6 +171,7 @@ input.onPinPressed(TouchPin.P1, function () {
         . . . . .
         . . # . .
         `)
+    basic.clearScreen()
     katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // 入力文字確認
