@@ -19,18 +19,17 @@
 * ロゴを長くタップ：送信メッセージ復元
 
 ## Githubのページ
-[githubのページ](https://github.com/KAKURITU-P/microbit-chat-ja)
+* [githubのページ](https://github.com/KAKURITU-P/microbit-chat-ja)
 
 ## Lite版はこっち↓
-[基本的な操作方法](https://kakuritu-p.github.io/microbit-chat-ja-lite/)
-
-[githubのページ](https://github.com/KAKURITU-P/microbit-chat-ja-lite)
+* [基本的な操作方法](https://kakuritu-p.github.io/microbit-chat-ja-lite/)
+* [githubのページ](https://github.com/KAKURITU-P/microbit-chat-ja-lite)
  
 ## 拡張機能として使用
 
 このリポジトリは、MakeCode で **拡張機能** として追加できるらしい。
 
-* [https://makecode.microbit.org/](https://makecode.microbit.org/) を開くらしい
+* [makecode for micro:bit](https://makecode.microbit.org/) を開くらしい
 * **新しいプロジェクト** をクリックするらしい
 * ギアボタンメニューの中にある **拡張機能** をクリックするらしい
 * **https://github.com/kakuritu-p/ver1-07-microbit-chat-lite** を検索してインポートするらしい。
@@ -40,4 +39,4 @@
 
 MakeCode でこのリポジトリを編集していいよ。
 
-* [https://makecode.microbit.org/](https://makecode.microbit.org/) 
+* [makecode for micro:bit](https://makecode.microbit.org/) 
