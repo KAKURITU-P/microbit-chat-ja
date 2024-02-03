@@ -18,6 +18,9 @@
 * ロゴを短くタップ：送信メッセージ確認
 * ロゴを長くタップ：送信メッセージ復元
 
+## Githubのページ
+[githubのページ](https://github.com/KAKURITU-P/microbit-chat-ja)
+
 ## Lite版はこっち↓
 [基本的な操作方法](https://kakuritu-p.github.io/microbit-chat-ja-lite/)
 
