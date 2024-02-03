@@ -11,6 +11,7 @@ input.onPinPressed(TouchPin.P0, function () {
         . . . . .
         # . . . .
         `)
+    katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // メッセージリカバリー
 input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
@@ -92,6 +93,7 @@ input.onPinPressed(TouchPin.P2, function () {
         . . . . .
         . . . . #
         `)
+    katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // 取り消し(試験的)
 input.onGesture(Gesture.Shake, function () {
@@ -167,6 +169,7 @@ input.onPinPressed(TouchPin.P1, function () {
         . . . . .
         . . # . .
         `)
+    katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 })
 // 入力文字確認
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
