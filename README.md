@@ -32,7 +32,7 @@
 * [makecode for micro:bit](https://makecode.microbit.org/) を開くらしい
 * **新しいプロジェクト** をクリックするらしい
 * ギアボタンメニューの中にある **拡張機能** をクリックするらしい
-* **https://github.com/kakuritu-p/ver1-07-microbit-chat-lite** を検索してインポートするらしい。
+* **https://github.com/KAKURITU-P/microbit-chat-ja.git** を検索してインポートするらしい。
 >　しらんけど
 
 ## このプロジェクトを編集したいひと↓
