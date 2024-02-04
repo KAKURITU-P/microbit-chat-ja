@@ -124,12 +124,17 @@ input.onGesture(Gesture.Shake, function () {
 // メッセージ送信
 // メッセージバックアップ
 input.onButtonPressed(Button.AB, function () {
-    radio.sendString(送信用文字)
+    if (互換モード == 1) {
+        radio.sendString(送信用文字)
+    } else {
+        radio.sendString("##" + 送信用文字)
+    }
     カナ文字_送信時バックアップ = カナ文字_メモリ
     送信用文字_送信時バックアップ = 送信用文字
     カナ文字 = ""
     カナ文字_メモリ = ""
     送信用文字 = ""
+    互換モード = 0
 })
 // メッセージ受信
 // メッセージ複号化
@@ -137,12 +142,22 @@ radio.onReceivedString(function (receivedString) {
     basic.clearScreen()
     カナ文字_受信時メモリ = ""
     カナ文字_受信時 = ""
-    受信文字数カウンター = 0
-    while (receivedString.length > 受信文字数カウンター) {
-        復号化用カウンター = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!".indexOf(receivedString.charAt(受信文字数カウンター))
-        カナ文字_受信時 = "" + カナ文字_受信時メモリ + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝｯｬｭｮｧｨｩｪｫ!?_-｡､ﾞﾟ".charAt(復号化用カウンター)
-        カナ文字_受信時メモリ = カナ文字_受信時
-        受信文字数カウンター += 1
+    if (receivedString.substr(0, 2) == "##") {
+        受信文字数カウンター = 1
+        while (receivedString.length / 2 > 受信文字数カウンター) {
+            復号化用カウンター = "a/i/u/e/o/kakikukekosasisusesotatitutetonaninunenohahihuhehomamimumemoya\\\\yu\\\\yorarirurerowa\\\\\\\\wonnttlsld\\\\lflalilulelo\\!\\?\\_\\-\\A\\B\\C\\D".indexOf(receivedString.substr(受信文字数カウンター * 2, 2))
+            カナ文字_受信時 = "" + カナ文字_受信時メモリ + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".charAt(復号化用カウンター / 2)
+            カナ文字_受信時メモリ = カナ文字_受信時
+            受信文字数カウンター += 1
+        }
+    } else {
+        受信文字数カウンター = 0
+        while (receivedString.length > 受信文字数カウンター) {
+            復号化用カウンター = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij\\k\\lmnopqr\\\\stuvw\\xyz1234567890!".indexOf(receivedString.substr(受信文字数カウンター, 1))
+            カナ文字_受信時 = "" + カナ文字_受信時メモリ + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".charAt(復号化用カウンター)
+            カナ文字_受信時メモリ = カナ文字_受信時
+            受信文字数カウンター += 1
+        }
     }
     basic.pause(200)
     basic.clearScreen()
@@ -154,12 +169,30 @@ radio.onReceivedString(function (receivedString) {
 // メッセージ保存
 // メッセージ暗号化
 input.onButtonPressed(Button.B, function () {
-    送信用文字_メモリ = "" + 送信用文字 + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij\\k\\lmnopqr\\\\stuvw\\xyz1234567890!".substr(文字セレクター, 1)
-    カナ文字_メモリ = "" + カナ文字 + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1)
-    送信用文字_取り消し時バックアップ = 送信用文字
-    カナ文字_取り消し時バックアップ = カナ文字
-    送信用文字 = 送信用文字_メモリ
-    カナ文字 = カナ文字_メモリ
+    if (互換モード == 1) {
+        送信用文字_メモリ = "" + 送信用文字 + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij\\k\\lmnopqr\\\\stuvw\\xyz1234567890!".substr(文字セレクター, 1)
+        カナ文字_メモリ = "" + カナ文字 + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1)
+        送信用文字_取り消し時バックアップ = 送信用文字
+        カナ文字_取り消し時バックアップ = カナ文字
+        送信用文字 = 送信用文字_メモリ
+        カナ文字 = カナ文字_メモリ
+    } else {
+        if (文字セレクター == 66 && カナ文字.length == 0) {
+            basic.clearScreen()
+            katakana.setScrollTime(50)
+            katakana.showString("ｺﾞｶﾝ")
+            katakana.setScrollTime(100)
+            basic.clearScreen()
+            互換モード = 1
+        } else {
+            送信用文字_メモリ = "" + 送信用文字 + "a/i/u/e/o/kakikukekosasisusesotatitutetonaninunenohahihuhehomamimumemoya\\\\yu\\\\yorarirurerowa\\\\\\\\wonnttlsld\\\\lflalilulelo\\!\\?\\_\\-\\A\\B\\C\\D".substr(文字セレクター * 2, 2)
+            カナ文字_メモリ = "" + カナ文字 + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1)
+            送信用文字_取り消し時バックアップ = 送信用文字
+            カナ文字_取り消し時バックアップ = カナ文字
+            送信用文字 = 送信用文字_メモリ
+            カナ文字 = カナ文字_メモリ
+        }
+    }
 })
 // 無線帯1003
 input.onPinPressed(TouchPin.P1, function () {
@@ -195,6 +228,7 @@ let カナ文字_送信時バックアップ = ""
 let カナ文字_メモリ = ""
 let 送信用文字_送信時バックアップ = ""
 let 送信用文字 = ""
+let 互換モード = 0
 let 文字セレクター = 0
 let 試験的 = 0
 katakana.setScrollTime(100)
@@ -206,3 +240,4 @@ pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.P2, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.LOGO, TouchTargetMode.Capacitive)
+互換モード = 0
