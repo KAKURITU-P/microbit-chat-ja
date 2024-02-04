@@ -209,10 +209,17 @@ input.onPinPressed(TouchPin.P1, function () {
 })
 // 入力文字確認
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    basic.clearScreen()
-    katakana.showString(カナ文字_メモリ)
-    basic.clearScreen()
-    katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
+    if (傾き == 0) {
+        basic.clearScreen()
+        katakana.showString(カナ文字_受信時)
+        basic.clearScreen()
+        katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
+    } else {
+        basic.clearScreen()
+        katakana.showString(カナ文字_メモリ)
+        basic.clearScreen()
+        katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔ/ﾕ/ﾖﾗﾘﾙﾚﾛﾜ//ｦﾝｯｬｭ/ｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
+    }
 })
 // 初期設定(リセット)
 let 復号化用カウンター = 0
