@@ -242,7 +242,7 @@ katakana.setScrollTime(100)
 試験的 = 0
 傾き = 1
 radio.setGroup(1001)
-文字セレクター = 1
+文字セレクター = 0
 katakana.showString("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝｯｬｭｮｧｨｩｪｫ!?_-｡､ﾞﾟ".substr(文字セレクター, 1))
 pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Capacitive)
 pins.touchSetMode(TouchTarget.P1, TouchTargetMode.Capacitive)
