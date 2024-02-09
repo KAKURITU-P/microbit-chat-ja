@@ -150,6 +150,14 @@ radio.onReceivedString(function (receivedString) {
             カナ文字_受信時メモリ = カナ文字_受信時
             受信文字数カウンター += 1
         }
+    } else if (receivedString.substr(0, 2) == "**") {
+        受信文字数カウンター = 1
+        while (receivedString.length / 2 > 受信文字数カウンター) {
+            復号化用カウンター = "AaAiAuAeAoKaKiKuKeKoSaSiSuSeSoTaTiTuTeToNaNiNuNeNoHahiHuHeHoMaMiMuMeMoYaYuYoRaRiRuReROWaWoWvLaLiLuLeXbXcXdXfXgXhXjXlXpXq".indexOf(receivedString.substr(受信文字数カウンター * 2, 2))
+            カナ文字_受信時 = "" + カナ文字_受信時メモリ + "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝｯｬｭｮｧｨｩｪｫ!?_-｡､ﾞﾟ".charAt(復号化用カウンター / 2)
+            カナ文字_受信時メモリ = カナ文字_受信時
+            受信文字数カウンター += 1
+        }
     } else {
         受信文字数カウンター = 0
         while (receivedString.length > 受信文字数カウンター) {
